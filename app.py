@@ -12,10 +12,10 @@ import os
 class_names = ["Female", "Male"]
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-from torchvision.models import mobilenet_v3_large
+from torchvision.models import mobilenet_v3_small
 
 def build_model():
-    model = mobilenet_v3_large(pretrained=False)
+    model = mobilenet_v3_small(pretrained=False)
     model.classifier[3] = nn.Linear(model.classifier[3].in_features, 1)
     return model
 
